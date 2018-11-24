@@ -2,21 +2,10 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
-import MenuItem from './components/MenuItem';
 
 export default class App extends React.Component {
   state = {
     isLoadingComplete: false,
-    menu: [
-      {
-        name: 'Add new medication',
-        goTo: 'CreateNew',
-      },
-      {
-        name: 'Look up existing medication',
-        goTo: 'LookUp',
-      },
-    ],
   };
 
   render() {
@@ -32,10 +21,7 @@ export default class App extends React.Component {
       return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          {this.state.menu.map(item => (
-            <MenuItem {...item} key={item.name} />
-          ))}
-          {AppNavigator}
+          <AppNavigator />
         </View>
       );
     }
@@ -71,10 +57,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flexDirection: 'column',
     flex: 1,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: 'black',
   },
 });

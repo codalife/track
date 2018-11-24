@@ -1,14 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 export default class MenuItem extends React.Component {
+  _handleNavigate = () => {
+    const { navigation, goTo } = this.props;
+
+    navigation.navigate(goTo);
+  };
   render() {
-    const { name, goTo } = this.props;
+    const { name } = this.props;
 
     return (
-      <View style={styles.menu} onPress={() => navigate(goTo)}>
+      <TouchableOpacity style={styles.menu} onPress={this._handleNavigate}>
         <Text>{name}</Text>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
@@ -21,6 +26,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'powderblue',
-    color: '#fff',
+    color: '#DEA527',
   },
 });
