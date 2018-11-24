@@ -29,7 +29,7 @@ export default class LinksScreen extends React.Component {
   _setStartDate = () => {
     getDate((year, month, day) => {
       this.setState({
-        startDate: `${month}, ${day}, ${year}`,
+        startDate: `${month}/${day}/${year}`,
       });
     });
   };
@@ -37,7 +37,7 @@ export default class LinksScreen extends React.Component {
   _setEndDate = () => {
     getDate((year, month, day) => {
       this.setState({
-        endDate: `${month}, ${day}, ${year}`,
+        endDate: `${month}/${day}/${year}`,
       });
     });
   };
@@ -54,14 +54,18 @@ export default class LinksScreen extends React.Component {
           title="Star Date"
           color="#841584"
         />
-        <Moment format="YYYY/MM/DD">{this.state.startDate}</Moment>
+        <Moment element={Text} format="YYYY/MM/DD">
+          {this.state.startDate}
+        </Moment>
         <Button
           onPress={this._setEndDate}
           title="End Date"
           color="#841584"
           disabled={this.state.noEnd}
         />
-        <Moment format="YYYY/MM/DD">{this.state.endDate}</Moment>
+        <Moment element={Text} format="YYYY/MM/DD">
+          {this.state.endDate}
+        </Moment>
       </ScrollView>
     );
   }

@@ -2,6 +2,15 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import { DBName } from './constants/DB';
+
+/*
+ crate or connect to DB on the app start
+*/
+import { createDB } from './storage/sqlite';
+
+createDB(DBName);
+//
 
 export default class App extends React.Component {
   state = {
