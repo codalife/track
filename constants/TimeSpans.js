@@ -1,6 +1,3 @@
-const periodToNumMap = new Map({
-  hour: 24,
-  day: 31,
-});
+const periodToNumMap = {};
 
 export default periodToNumMap;

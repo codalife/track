@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Moment from 'react-moment';
 import getDate from '../utils/getDate';
+import periodToNumMap from '../constants/TimeSpans';
 
 const now = new Date();
 
@@ -66,6 +67,7 @@ export default class LinksScreen extends React.Component {
         <Moment element={Text} format="YYYY/MM/DD">
           {this.state.endDate}
         </Moment>
+        <Text>Once every</Text>
       </ScrollView>
     );
   }

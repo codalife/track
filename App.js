@@ -2,14 +2,16 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
-import { DBName } from './constants/DB';
+import { DBName, tables } from './constants/DB';
 
 /*
- crate or connect to DB on the app start
+ create or connect to DB on the app start
 */
-import { createDB } from './storage/sqlite';
+import { createDB, createTables } from './storage/sqlite';
 
-createDB(DBName);
+const db = createDB(DBName);
+createTables(db, tables);
+
 //
 
 export default class App extends React.Component {
