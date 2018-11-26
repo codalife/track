@@ -1,3 +1,9 @@
+Dev tools used:
+
+1. create-react-native-app //https://facebook.github.io/react-native/blog/2017/03/13/introducing-create-react-native-app
+2. android studio https://developer.android.com/studio/
+3. genymotion https://docs.expo.io/versions/latest/workflow/genymotion#__next
+
 To work with SQLite directly:
 
 1. adb devices // see device_name

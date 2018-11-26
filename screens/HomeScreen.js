@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import { WebBrowser } from 'expo';
+import { Notifications } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import MenuItem from '../components/MenuItem';

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "869119643636",
+    "firebase_url": "https://pilltracker-aad84.firebaseio.com",
+    "project_id": "pilltracker-aad84",
+    "storage_bucket": "pilltracker-aad84.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869119643636:android:9a24091ee1f84be1",
+        "android_client_info": {
+          "package_name": "com.anuar.pilltracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869119643636-7g3a4r6o2jrd8hmg6gic1i05q29otmn4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbxgeaYrqA6VAN9PCYyMK6iRq97aP68bI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

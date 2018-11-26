@@ -2,12 +2,13 @@ export const DBName = 'medications';
 
 export const tables = [
   {
-    name: 'cmon',
-    schema: 'id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR',
+    name: 'names',
+    schema: 'id INTEGER PRIMARY KEY AUTOINCREMENT,name text',
   },
   {
     name: 'periods',
-    schema: 'id integer primary key, start text, end text',
+    schema:
+      'id integer primary key, start text, end text, name_id integer not null, foreign key(names_id) references names(id)',
   },
   {
     name: 'dosages',
