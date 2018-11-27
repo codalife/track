@@ -1,13 +1,62 @@
 import { SQLite } from 'expo';
 
-const sqlite = {
-  save: (type, key, value) => {
-    db.transaction(`CREATE TABLE`);
+let db;
+
+export const sqlite = {
+  save: (type, keys, values) => {
+    return new Promise((resolve, reject) => {
+      console.log(
+        `insert into ?(${keys.join(',')}) values (${values
+          .map(item => '?')
+          .join(',')});`,
+      );
+
+      const query = ``;
+      console.log([type, ...values]);
+      db.transaction(tx => {
+        tx.executeSql(
+          `insert into ${type}(${keys.join(',')}) values(${values
+            .map(item => '?')
+            .join(',')})`,
+          values,
+          error => {
+            console.log(error);
+            reject(error);
+          },
+          (tx, success) => {
+            console.log(`successfully got in ${success}`);
+            console.log(success);
+            resolve(success);
+          },
+        );
+      });
+    });
+  },
+  getAll: type => {
+    return new Promise((resolve, reject) => {
+      console.log(`select * from ?;`);
+      console.log([type]);
+      db.transaction(tx => {
+        tx.executeSql(
+          `select * from ?;`,
+          [type],
+          error => {
+            console.log(error);
+            reject(error);
+          },
+          success => {
+            console.log(`successfully saved in ${type}`);
+            resolve(success);
+          },
+        );
+      });
+    });
   },
 };
 
 export const createDB = name => {
-  return SQLite.openDatabase(name);
+  db = SQLite.openDatabase(name);
+  return db;
 };
 
 // element.schema is a SQLite query string

@@ -10,6 +10,7 @@ import {
 import Moment from 'react-moment';
 import getDate from '../utils/getDate';
 import periodToNumMap from '../constants/TimeSpans';
+import { sqlite } from '../storage/sqlite';
 
 const now = new Date();
 
@@ -43,6 +44,15 @@ export default class LinksScreen extends React.Component {
     });
   };
 
+  _save = () => {
+    sqlite
+      .save('names', ['name'], [this.state.name])
+      .then(saved => {
+        sqlite.getAll('names');
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <ScrollView style={styles.container}>
@@ -68,6 +78,7 @@ export default class LinksScreen extends React.Component {
           {this.state.endDate}
         </Moment>
         <Text>Once every</Text>
+        <Button onPress={this._save} title="Save" color="lightblue" />
       </ScrollView>
     );
   }

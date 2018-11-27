@@ -15,7 +15,7 @@ import createNotification from './utils/localNotification';
 
 /*
  create or connect to DB on the app start
-
+*/
 import { createDB, createTables } from './storage/sqlite';
 
 const db = createDB(DBName);
